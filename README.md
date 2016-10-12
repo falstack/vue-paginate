@@ -1,6 +1,8 @@
 ## vue-paginate
 A awesome paginate component for vue.js(2.x)
 
+ ![image](https://github.com/falstack/vue-paginate/raw/master/demo.png)
+
 ## 项目依赖：
 vue.js(2.x)
 
@@ -57,7 +59,7 @@ template : 必须，html模板，如：
 ````javascript
 init：必须，object，如：
 {
-  // 定义后台数据接口地址 | required | string
+  // 定义后台数据接口地址，必须 | required | string
   api: 'xxxx',
   // 定义后台返回数据的格式，用于vue-resource读取 | required | Object
   // data：列表数据key，必须。例中的data读取格式为response.body.data
