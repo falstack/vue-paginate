@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>vue-paginate demo</title>
+    <link rel="stylesheet" href="./dist/vue-paginate.css">
+    <style>
+        .item {
+            color: palevioletred;
+        }
+    </style>
+</head>
+<body>
+    <div id="warp">
+        <paginate :template="template" :init="init"></paginate>
+    </div>
+<script src="http://cdn.bootcss.com/vue/2.0.1/vue.min.js"></script>
+<script src="http://cdn.bootcss.com/vue-resource/1.0.3/vue-resource.min.js"></script>
+<script src="http://cdn.bootcss.com/lodash.js/4.16.2/lodash.min.js"></script>
+<script src="./bulid/vue-paginate.js"></script>
+<script>
+    new Vue({
+        el: '#warp',
+        components: {
+            'paginate': window.vuePaginate
+        },
+        data () {
+            return {
+                template:
+                "<div class='item'>" +
+                    "<p>{{ item.title }}</p>" +
+                "</div>",
+                init: {
+                    api: 'http://localhost:8000/api/post/all',
+                    res: {
+                        data: 'data',
+                        total: 'meta.total'
+                    },
+                    sorts: [
+                        {
+                            val: "id",
+                            name: "最新发布"
+                        },
+                        {
+                            val: "like",
+                            name: "最多喜欢"
+                        },
+                        {
+                            val: "talk",
+                            name: "最多回复"
+                        }
+                    ]
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
